@@ -12,6 +12,7 @@ web_modules/
 temp/
 .cache/
 gulpfile.js.map
+public/
 
 # Logs
 logs/
