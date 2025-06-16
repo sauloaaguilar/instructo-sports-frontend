@@ -50,6 +50,22 @@ block styles
       linkRTL.setAttribute('disabled', true);
       userLinkRTL.setAttribute('disabled', true);
     }
+      // Supabase desde CDN
+  script(src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm" type="module")
+  script(type="module").
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabase = window.supabase = createClient(
+      import.meta.env.SUPABASE_URL || 'https://tgmxyizioeboeqexdeyc.supabase.co',
+      import.meta.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIs...' // tu anon key real
+    );
+
+    // Prueba de conexión (esto puedes quitarlo luego)
+    supabase.auth.getSession().then(({ data, error }) => {
+      console.log('🔗 Supabase session:', data?.session || 'No activa');
+      if (error) console.error('❌ Supabase error:', error.message);
+    });
+
 
 append layoutScripts
   script(src=`${CWD}vendors/fontawesome/all.min.js`)
