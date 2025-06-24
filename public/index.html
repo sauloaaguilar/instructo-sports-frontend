@@ -23,6 +23,12 @@
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
+    <script>
+      window.__SUPABASE__ = {
+        url: 'https://tgmxyizioeboeqexdeyc.supabase.co',
+        anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRnbXh5aXppb2Vib2VxZXhkZXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MjQzOTQsImV4cCI6MjA2NTIwMDM5NH0.xqxzW9i6PXAlFsdo6Otp4hISGk1X8PO2iMTVxn-NB6g'
+      };
+    </script>
     <script src="vendors/simplebar/simplebar.min.js"></script>
     <script src="assets/js/config.js"></script>
 
@@ -3895,6 +3901,24 @@
     <script src="assets/js/phoenix.js"></script>
     <script src="vendors/echarts/echarts.min.js"></script>
     <script src="assets/js/dashboards/ecommerce-dashboard.js"></script>
+    <script type="module">
+      import {
+        supabase
+      } from '/assets/js/custom/supabaseInit.js';
+
+      async function testSupabase() {
+        const {
+          data,
+          error
+        } = await supabase.auth.getSession();
+        console.log('🔍 Sesión actual:', data);
+        if (error) {
+          console.error('❌ Error al obtener sesión:', error.message);
+        }
+      }
+
+      testSupabase();
+    </script>
 
   </body>
 

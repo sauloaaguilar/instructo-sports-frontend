@@ -141,7 +141,18 @@
         "path": "src/js/pages/advance-ajax-table.js",
         "name": "advanceAjaxTable",
         "dest": "assets/js/pages"
+      },
+      {
+        "path": "src/js/custom/supabaseInit.js",
+        "name": "supabaseInit",
+        "dest": "assets/js/custom"
+      },
+      {
+        "path": "src/js/custom/supabaseSessionCheck.js",
+        "name": "supabaseSessionCheck",
+        "dest": "assets/js/custom"
       }
+
     ],
     "dest": "assets/js"
   },

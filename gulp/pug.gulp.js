@@ -11,6 +11,10 @@ const gulpJsbeautifier = require('gulp-jsbeautifier');
 const ansi = require('ansi');
 const { v4: uuid } = require('uuid');
 const { name, version, paths, baseDir, isProd } = require('./utils');
+// Supabase
+const dotenv = require('dotenv');
+
+dotenv.config(); // 👈 Carga el archivo .env
 
 const cursor = ansi(process.stdout);
 
@@ -24,6 +28,9 @@ const locals = {
   jsPretty: pretty,
   ENV: process.env.MODE || 'DEVELOPMENT',
   uuid,
+  // ✅ Agrega estas dos líneas:
+  SUPABASE_URL: process.env.SUPABASE_URL || '',
+  SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || '',
   flatSitemap(siteMap) {
     function flatInnter(pages) {
       let flat = [];

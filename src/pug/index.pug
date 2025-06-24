@@ -15,6 +15,18 @@ prepend scripts
 append scripts
   script(src=`${CWD}vendors/echarts/echarts.min.js`)
   script(src=`${CWD}assets/js/dashboards/ecommerce-dashboard.js`)
+  script(type="module").
+    import { supabase } from '/assets/js/custom/supabaseInit.js';
+
+    async function testSupabase() {
+      const { data, error } = await supabase.auth.getSession();
+      console.log('🔍 Sesión actual:', data);
+      if (error) {
+        console.error('❌ Error al obtener sesión:', error.message);
+      }
+    }
+
+    testSupabase();
 
 append styles
   link(href=`${CWD}vendors/leaflet/leaflet.css`, rel='stylesheet')

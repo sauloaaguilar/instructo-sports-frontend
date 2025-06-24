@@ -22,6 +22,11 @@ append variables
   - var attrsNavbarVertical = {}
 
 append headScripts
+  script.
+    window.__SUPABASE__ = {
+      url: '!{SUPABASE_URL}',
+      anonKey: '!{SUPABASE_ANON_KEY}'
+    };
   script(src=`${CWD}vendors/simplebar/simplebar.min.js`)
   script(src=`${CWD}assets/js/config.js`)
 
